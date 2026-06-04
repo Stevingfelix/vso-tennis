@@ -1,0 +1,9 @@
+# Private / internal — never publish
+_private/
+_chat.txt
+CLAUDE.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
