@@ -306,6 +306,98 @@
   headerState();
   window.addEventListener("scroll", headerState, { passive: true });
 
+  /* ---------- Decorative doodles ---------- */
+  (function doodles() {
+    var SPRITE =
+      '<svg class="doodle-defs" aria-hidden="true">' +
+      // ball-trajectory arc (seam connector)
+      '<symbol id="dl-arc" viewBox="0 0 260 130"><g fill="none" stroke="currentColor" stroke-linecap="round">' +
+      '<path d="M8 116 C 64 10 192 6 250 78" stroke-width="3" stroke-dasharray="0.5 13"/>' +
+      '<circle cx="250" cy="80" r="8" stroke-width="3"/></g></symbol>' +
+      // paddle / racket
+      '<symbol id="dl-paddle" viewBox="0 0 120 152"><g fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M60 7 C 31 5 13 28 13 55 C 13 83 35 104 60 104 C 85 104 107 84 107 56 C 107 29 89 9 60 7 Z"/>' +
+      '<path d="M51 103 L47 142 C 47 149 73 149 73 142 L69 103"/></g></symbol>' +
+      // ball with motion lines
+      '<symbol id="dl-ball" viewBox="0 0 92 60"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">' +
+      '<circle cx="64" cy="30" r="16"/><path d="M6 17 H33"/><path d="M2 31 H30"/><path d="M9 45 H32"/></g></symbol>' +
+      // double underline swoosh
+      '<symbol id="dl-underline" viewBox="0 0 240 28"><g fill="none" stroke="currentColor" stroke-linecap="round">' +
+      '<path d="M6 15 C 64 6 156 7 234 12" stroke-width="4"/><path d="M12 23 C 74 16 162 17 228 21" stroke-width="3" opacity=".7"/></g></symbol>' +
+      // loose scribbled circle
+      '<symbol id="dl-scribble" viewBox="0 0 132 122"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">' +
+      '<path d="M88 18 C 42 4 16 42 20 72 C 24 102 74 116 102 100 C 128 85 124 40 92 27 C 62 15 35 32 34 58"/></g></symbol>' +
+      // four-point spark
+      '<symbol id="dl-star" viewBox="0 0 60 60"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">' +
+      '<path d="M30 5 C 33 22 38 27 55 30 C 38 33 33 38 30 55 C 27 38 22 33 5 30 C 22 27 27 22 30 5 Z"/></g></symbol>' +
+      // squiggle
+      '<symbol id="dl-squiggle" viewBox="0 0 150 24"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">' +
+      '<path d="M5 13 Q 23 1 41 13 T 77 13 T 113 13 T 146 12"/></g></symbol>' +
+      // table net
+      '<symbol id="dl-net" viewBox="0 0 132 52"><g fill="none" stroke="currentColor" stroke-linecap="round">' +
+      '<path d="M5 7 H127 M5 45 H127" stroke-width="3"/>' +
+      '<path d="M16 7 V45 M32 7 V45 M48 7 V45 M64 7 V45 M80 7 V45 M96 7 V45 M112 7 V45" stroke-width="1.8" opacity=".65"/></g></symbol>' +
+      // hand-drawn arrow
+      '<symbol id="dl-arrow" viewBox="0 0 120 84"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M8 14 C 52 6 96 22 104 60"/><path d="M86 52 L106 62 L102 42"/></g></symbol>' +
+      '</svg>';
+    document.body.insertAdjacentHTML("afterbegin", SPRITE);
+
+    var RATIO = { arc: 2, paddle: 0.79, ball: 1.53, underline: 8.57, scribble: 1.08, star: 1, squiggle: 6.25, net: 2.54, arrow: 1.43 };
+    var PLACE = {
+      hero: [
+        { sym: "squiggle", w: 112, css: "top:104px;left:6%", rot: -4, mods: "red hide-sm" },
+        { sym: "ball", w: 76, css: "bottom:13%;left:1.5%", rot: -6, mods: "float hide-sm" },
+        { sym: "underline", w: 168, css: "bottom:29%;left:6%", rot: -2, mods: "red hide-sm" }
+      ],
+      story: [
+        { sym: "scribble", w: 96, css: "top:9%;left:-1%", rot: 0, mods: "hide-sm" },
+        { sym: "star", w: 40, css: "bottom:15%;left:46%", rot: 0, mods: "red" },
+        { sym: "arc", w: 236, css: "bottom:-44px;right:7%", rot: 7, mods: "hide-sm" }
+      ],
+      programme: [
+        { sym: "net", w: 120, css: "top:13%;right:3%", rot: -6, mods: "hide-sm" },
+        { sym: "ball", w: 70, css: "bottom:9%;left:1%", rot: 8, mods: "float alt hide-sm" }
+      ],
+      videos: [
+        { sym: "star", w: 46, css: "top:15%;right:6%", rot: 0, mods: "red hide-sm" },
+        { sym: "squiggle", w: 128, css: "bottom:7%;left:3%", rot: 4, mods: "hide-sm" },
+        { sym: "arc", w: 230, css: "bottom:-42px;left:10%", rot: -6, mods: "hide-sm" }
+      ],
+      gallery: [
+        { sym: "paddle", w: 74, css: "top:11%;left:1.5%", rot: -12, mods: "float hide-sm" },
+        { sym: "star", w: 38, css: "bottom:20%;right:4%", rot: 0, mods: "red" }
+      ],
+      join: [
+        { sym: "star", w: 46, css: "top:20%;left:9%", rot: 0, mods: "lite hide-sm" },
+        { sym: "ball", w: 66, css: "top:24%;right:9%", rot: -8, mods: "lite hide-sm" },
+        { sym: "arc", w: 230, css: "bottom:-40px;right:12%", rot: 8, mods: "lite hide-sm" }
+      ],
+      champions: [
+        { sym: "ball", w: 64, css: "top:9%;right:6%", rot: 0, mods: "lite hide-sm" },
+        { sym: "squiggle", w: 120, css: "top:7%;left:3%", rot: -3, mods: "red hide-sm" }
+      ],
+      contact: [
+        { sym: "scribble", w: 90, css: "top:11%;right:4%", rot: 0, mods: "hide-sm" },
+        { sym: "arrow", w: 108, css: "bottom:34%;left:39%", rot: 0, mods: "red hide-sm" },
+        { sym: "star", w: 36, css: "top:22%;left:3%", rot: 0, mods: "" }
+      ]
+    };
+
+    Object.keys(PLACE).forEach(function (id) {
+      var sec = document.getElementById(id);
+      if (!sec) return;
+      PLACE[id].forEach(function (it) {
+        var h = Math.round(it.w / (RATIO[it.sym] || 1));
+        var style = "width:" + it.w + "px;height:" + h + "px;" + it.css + ";--rot:" + it.rot + "deg";
+        sec.insertAdjacentHTML(
+          "beforeend",
+          '<svg class="doodle ' + (it.mods || "") + '" style="' + style + '" aria-hidden="true"><use href="#dl-' + it.sym + '"/></svg>'
+        );
+      });
+    });
+  })();
+
   /* ---------- Year ---------- */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();

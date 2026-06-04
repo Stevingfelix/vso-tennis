@@ -329,6 +329,49 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 }
 
 /* ==========================================================================
+   DOODLES — hand-drawn marginalia that bridge the section seams
+   ========================================================================== */
+.theme-light main > section { position: relative; }
+.theme-light main > section > .wrap { position: relative; z-index: 2; }
+.doodle-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.doodle {
+  position: absolute; z-index: 1; pointer-events: none; overflow: visible;
+  color: var(--ink); opacity: .2;
+  transform: rotate(var(--rot, 0deg));
+}
+.doodle.red  { color: var(--red); opacity: .5; }
+.doodle.lite { color: #fff; opacity: .2; }
+.doodle use { width: 100%; height: 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .doodle.float { animation: dfloat 10s ease-in-out infinite; }
+  .doodle.float.alt { animation-duration: 13s; animation-delay: -4s; }
+}
+@keyframes dfloat {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50%      { transform: translateY(-14px) rotate(var(--rot, 0deg)); }
+}
+@media (max-width: 860px) { .doodle.hide-sm { display: none; } }
+
+/* ==========================================================================
+   BRAND BAND — full-bleed orange brand moment
+   ========================================================================== */
+.band { background: var(--red); color: #fff; text-align: center; padding-block: clamp(66px, 9vw, 124px); }
+.band-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+.band .eyebrow.light { color: rgba(255,255,255,.85); }
+.band-title { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(2.2rem, 6vw, 4.7rem); line-height: .94; letter-spacing: .01em; }
+.btn-on-brand { background: #fff; color: var(--red); box-shadow: 0 14px 34px -14px rgba(0,0,0,.45); }
+.btn-on-brand:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+
+/* ==========================================================================
+   DARK INTERLUDE — Champions on charcoal for contrast
+   ========================================================================== */
+.champions { background: var(--ink); color: #fff; }
+.champions .kicker { color: rgba(255,255,255,.62); }
+.champions .kicker span { color: var(--red); }
+.champions .section-title { color: #fff; }
+.champions .section-intro { color: rgba(255,255,255,.62); }
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 980px) {
