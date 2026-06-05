@@ -313,6 +313,13 @@
   }
   toggle.addEventListener("click", function () { setMenu(!nav.classList.contains("open")); });
   nav.addEventListener("click", function (e) { if (e.target.tagName === "A") setMenu(false); });
+  var navBackdrop = document.getElementById("navBackdrop");
+  var navClose = document.getElementById("navClose");
+  if (navBackdrop) navBackdrop.addEventListener("click", function () { setMenu(false); });
+  if (navClose) navClose.addEventListener("click", function () { setMenu(false); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && nav.classList.contains("open")) setMenu(false);
+  });
 
   /* ---------- Contact form → WhatsApp (no backend) ---------- */
   var contactForm = document.querySelector(".contact-form");

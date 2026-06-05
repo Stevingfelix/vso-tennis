@@ -162,6 +162,8 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 .brand-name { font-weight: 800; font-size: .98rem; }
 .brand-sub { font-size: .68rem; letter-spacing: .26em; text-transform: uppercase; color: var(--muted); }
 .nav { display: flex; align-items: center; gap: 2rem; }
+/* modal-only chrome — hidden on desktop, shown inside the mobile popup */
+.nav-modal-head, .nav-backdrop { display: none; }
 .nav a { font-size: .92rem; font-weight: 600; color: var(--ink-2); position: relative; transition: color .2s; }
 .nav a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--red); transition: width .25s var(--ease); }
 .nav a:not(.nav-cta):hover { color: var(--ink); }
@@ -585,39 +587,68 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
   .benefit-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 860px) {
-  /* ---- dramatic full-screen menu ---- */
+  /* ---- mini modal popup over a blurred page ---- */
+  .nav-backdrop {
+    display: block; position: fixed; inset: 0; z-index: 190;
+    background: rgba(16,18,22,.42); backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+    opacity: 0; visibility: hidden; transition: opacity .35s var(--ease), visibility .35s;
+  }
+  body.menu-open .nav-backdrop { opacity: 1; visibility: visible; }
+
   .nav {
-    position: fixed; inset: 0; z-index: 90;
-    flex-direction: column; align-items: flex-start; justify-content: center; gap: 0;
-    padding: 0 var(--gutter); background: var(--ink);
-    transform: translateY(-100%); visibility: hidden;
-    transition: transform .55s var(--ease-out), visibility .55s;
+    position: fixed; z-index: 195;
+    top: 50%; left: 50%; width: min(86vw, 360px);
+    transform: translate(-50%, -48%) scale(.94);
+    flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
+    padding: 1.4rem 1.5rem 1.5rem; background: #fff;
+    border-radius: 22px; box-shadow: 0 30px 80px -20px rgba(16,18,22,.55), 0 2px 0 rgba(255,255,255,.6) inset;
+    opacity: 0; visibility: hidden; max-height: 86svh; overflow-y: auto;
+    transition: opacity .35s var(--ease), visibility .35s, transform .45s var(--pop);
   }
-  .nav.open { transform: translateY(0); visibility: visible; }
+  .nav.open { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+
+  .nav-modal-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: .9rem; margin-bottom: .4rem; border-bottom: 1px solid var(--line);
+  }
+  .nav-modal-title {
+    font-family: var(--display); text-transform: uppercase; letter-spacing: .06em;
+    font-size: 1.05rem; color: var(--muted);
+  }
+  .nav-close { position: relative; width: 36px; height: 36px; border: 0; background: none; cursor: pointer; flex: none; }
+  .nav-close span {
+    position: absolute; top: 50%; left: 50%; width: 18px; height: 2px; border-radius: 2px;
+    background: var(--ink); transition: background .2s;
+  }
+  .nav-close span:nth-child(1) { transform: translate(-50%,-50%) rotate(45deg); }
+  .nav-close span:nth-child(2) { transform: translate(-50%,-50%) rotate(-45deg); }
+  .nav-close:hover span { background: var(--red); }
+
   .nav a {
-    font-family: var(--display); text-transform: uppercase; letter-spacing: .01em;
-    font-size: clamp(2.1rem, 11vw, 3.6rem); line-height: 1.12; color: #fff; padding: .1em 0;
-    opacity: 0; transform: translateX(-26px);
-    transition: opacity .4s ease, transform .55s var(--pop), color .2s;
+    font-family: var(--display); text-transform: uppercase; letter-spacing: .015em;
+    font-size: 1.5rem; line-height: 1; color: var(--ink); padding: .62rem .2rem;
+    border-bottom: 1px solid var(--line);
+    opacity: 0; transform: translateY(10px);
+    transition: opacity .4s ease, transform .5s var(--pop), color .2s, padding-left .2s var(--ease);
   }
-  .nav.open a { opacity: 1; transform: translateX(0); }
-  .nav.open a:nth-child(1) { transition-delay: .12s; }
-  .nav.open a:nth-child(2) { transition-delay: .18s; }
-  .nav.open a:nth-child(3) { transition-delay: .24s; }
-  .nav.open a:nth-child(4) { transition-delay: .30s; }
-  .nav.open a:nth-child(5) { transition-delay: .36s; }
-  .nav.open a:nth-child(6) { transition-delay: .42s; }
-  .nav.open a:nth-child(7) { transition-delay: .48s; }
+  .nav.open a { opacity: 1; transform: translateY(0); }
+  .nav.open a:nth-of-type(1) { transition-delay: .06s; }
+  .nav.open a:nth-of-type(2) { transition-delay: .10s; }
+  .nav.open a:nth-of-type(3) { transition-delay: .14s; }
+  .nav.open a:nth-of-type(4) { transition-delay: .18s; }
+  .nav.open a:nth-of-type(5) { transition-delay: .22s; }
+  .nav.open a:nth-of-type(6) { transition-delay: .26s; }
+  .nav.open a:nth-of-type(7) { transition-delay: .30s; }
+  .nav.open a:nth-of-type(8) { transition-delay: .34s; }
   .nav a:not(.nav-cta)::after { display: none; }
-  .nav a:hover, .nav a:active { color: var(--red); transform: translateX(16px); }
-  .nav a.nav-cta { background: none; color: var(--red); padding: .1em 0; margin-top: .15em; }
-  .nav a.nav-cta:hover, .nav a.nav-cta:active { background: none; color: #fff; transform: translateX(16px); }
+  .nav a:not(.nav-cta):hover, .nav a:not(.nav-cta):active { color: var(--red); padding-left: .7rem; }
+  .nav a.nav-cta {
+    margin-top: 1rem; border-bottom: 0; border-radius: 999px; text-align: center;
+    background: var(--red); color: #fff; padding: .75rem 1rem; font-size: 1.25rem; letter-spacing: .03em;
+  }
+  .nav a.nav-cta:hover, .nav a.nav-cta:active { background: var(--ink); color: #fff; transform: translateY(-2px); }
   .nav-toggle { display: flex; position: relative; z-index: 95; }
   .brand { position: relative; z-index: 95; }
-  /* keep brand + toggle legible over the dark menu */
-  body.menu-open .brand-name { color: #fff !important; }
-  body.menu-open .brand-sub { color: rgba(255,255,255,.6) !important; }
-  body.menu-open .nav-toggle span { background: #fff !important; }
 
   .story-grid, .contact-grid, .about-grid { grid-template-columns: 1fr; gap: clamp(20px, 5vw, 36px); }
   .about-head { position: static; }
