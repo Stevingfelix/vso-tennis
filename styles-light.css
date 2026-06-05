@@ -166,9 +166,9 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 .nav a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--red); transition: width .25s var(--ease); }
 .nav a:not(.nav-cta):hover { color: var(--ink); }
 .nav a:not(.nav-cta):hover::after { width: 100%; }
-.nav-cta { background: var(--ink); color: #fff; padding: .6em 1.2em; border-radius: 999px; transition: background .2s, transform .3s var(--pop); }
-.nav-cta:hover { background: var(--red); transform: translateY(-2px) scale(1.07); }
-.nav-cta:active { transform: scale(.96); transition-duration: .1s; }
+.nav a.nav-cta { background: var(--ink); color: #fff; padding: .6em 1.2em; border-radius: 999px; transition: background .2s, transform .3s var(--pop); }
+.nav a.nav-cta:hover { background: var(--red); color: #fff; transform: translateY(-2px) scale(1.07); }
+.nav a.nav-cta:active { transform: scale(.96); transition-duration: .1s; }
 .nav-toggle { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; background: none; border: 0; cursor: pointer; width: 44px; height: 44px; margin-right: -8px; }
 .nav-toggle span { width: 26px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s; }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -259,13 +259,15 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
    SHOWREEL — sticky parallax video
    ========================================================================== */
 .showreel { position: relative; }
-.showreel-track { height: 230vh; position: relative; }
-.showreel-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: grid; place-items: center; background: var(--ink); }
-.showreel-video { position: absolute; inset: 0; will-change: transform; }
-.showreel-video video { width: 100%; height: 100%; object-fit: cover; }
-.showreel-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,12,15,.4), rgba(11,12,15,.15) 40%, rgba(11,12,15,.7)); }
-.showreel-overlay { position: relative; z-index: 2; text-align: center; color: #fff; padding-inline: var(--gutter); }
-.showreel-title { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(2.2rem, 6.5vw, 5rem); line-height: .95; margin: 1rem 0 1.6rem; }
+.showreel-track { height: 200vh; position: relative; }
+.showreel-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; background: var(--ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: clamp(16px, 2.6vw, 30px); padding: 92px var(--gutter) 46px; }
+.showreel-overlay { order: -1; position: relative; z-index: 2; text-align: center; color: #fff; }
+.showreel-video { position: relative; line-height: 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--sh-lg); will-change: transform; }
+.showreel-video video { display: block; max-width: min(1000px, 90vw); max-height: 56vh; width: auto; height: auto; background: #000; }
+.showreel-scrim { display: none; }
+.showreel-title { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.7rem, 4.4vw, 3.2rem); line-height: .98; margin: .6rem 0 1.2rem; }
 .reel-toggle { display: inline-flex; align-items: center; gap: .7em; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.4); color: #fff; padding: .7em 1.3em .7em .8em; border-radius: 999px; cursor: pointer; font-weight: 700; font-size: .9rem; letter-spacing: .02em; backdrop-filter: blur(6px); transition: background .25s, transform .3s var(--pop); }
 .reel-toggle:hover { background: var(--red); border-color: var(--red); transform: translateY(-3px) scale(1.07); }
 .reel-toggle:active { transform: scale(.96); transition-duration: .1s; }
@@ -329,6 +331,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 .champ-shot.in,
 .champ-feature.reverse .champ-shot.in { clip-path: inset(0 0 0 0 round var(--radius-lg)); }
 .champ-shot img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transform: scale(1.25); transition: transform 1.2s var(--pop); }
+.champ-shot.face img { object-position: center top; }
 .champ-shot.in img { transform: scale(1); }
 .champ-shot:hover { transform: translateY(-6px) scale(1.015); }
 
@@ -562,6 +565,15 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 @media (max-width: 760px) {
   /* declutter big background shapes on small screens (keep glow + circle photo) */
   .theme-light .programme::after, .theme-light .benefits::after, .theme-light .contact::before { display: none; }
+}
+@media (max-width: 640px) {
+  /* pull hero content up so it sits closer to the header */
+  .hero { align-items: center; min-height: 88svh; padding-top: 86px; padding-bottom: 44px; }
+  /* tighten section spacing on mobile */
+  .section { padding-block: clamp(50px, 9vw, 76px); }
+  /* keep the kicker's presence (match the desktop feel) */
+  .kicker { font-size: .84rem; }
+  .kicker span { font-size: 1.18rem; }
 }
 @media (max-width: 560px) {
   .masonry { columns: 1; }

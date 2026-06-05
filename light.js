@@ -220,7 +220,7 @@
       var prog = total > 0 ? Math.min(1, Math.max(0, -tr.top / total)) : 0;
       if (reelProgress) reelProgress.style.width = (prog * 100).toFixed(1) + "%";
       if (reelVideo && !reduce) {
-        var scale = 1.18 - prog * 0.18; // 1.18 → 1.00 as you scroll through
+        var scale = 1.08 - prog * 0.08; // gentle zoom on the contained clip
         reelVideo.style.transform = "scale(" + scale.toFixed(3) + ")";
       }
     }
