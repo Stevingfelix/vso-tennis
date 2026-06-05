@@ -282,6 +282,25 @@
     revealEls.forEach(function (el) { el.classList.add("in"); });
   }
 
+  /* ---------- Champions: pop images in from their frame ----------
+     Observe the (un-clipped) feature row, not the shot — the shot's
+     clip-path collapses its width so its intersectionRatio reads 0.    */
+  var champFeatures = document.querySelectorAll(".champ-feature");
+  if ("IntersectionObserver" in window && champFeatures.length) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var shot = entry.target.querySelector(".champ-shot");
+          if (shot) shot.classList.add("in");
+          cio.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    champFeatures.forEach(function (el) { cio.observe(el); });
+  } else {
+    document.querySelectorAll(".champ-shot").forEach(function (el) { el.classList.add("in"); });
+  }
+
   /* ---------- Hero word reveal ---------- */
   var hero = document.getElementById("hero");
   if (hero) {

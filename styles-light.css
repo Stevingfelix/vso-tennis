@@ -311,12 +311,38 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 /* ==========================================================================
    CHAMPIONS
    ========================================================================== */
-.champ-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-.champ-card { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--sh-md); transition: transform .4s var(--pop), box-shadow .4s; }
-.champ-card:hover { transform: translateY(-6px) scale(1.025); box-shadow: var(--sh-lg); }
-.champ-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; transition: transform .6s var(--ease); }
-.champ-card:hover img { transform: scale(1.05); }
-.champ-card figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.4rem 1.5rem 1.3rem; font-weight: 600; color: #fff; background: linear-gradient(transparent, rgba(11,12,15,.82)); }
+/* editorial feature rows — image pops in from its frame beside a giant statement */
+.champ-feature { display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(28px, 5vw, 76px); align-items: center; margin-top: clamp(44px, 6vw, 88px); }
+.champ-feature.reverse { grid-template-columns: .88fr 1.12fr; }
+.champ-feature.reverse .champ-shot { order: 2; }
+.champ-feature.reverse .champ-said { order: 1; }
+
+.champ-shot {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--sh-lg);
+  clip-path: inset(0 101% 0 0 round var(--radius-lg));
+  transition: clip-path 1s var(--ease-out), transform .45s var(--pop), box-shadow .45s;
+}
+.champ-feature.reverse .champ-shot { clip-path: inset(0 0 0 101% round var(--radius-lg)); }
+.champ-shot.in,
+.champ-feature.reverse .champ-shot.in { clip-path: inset(0 0 0 0 round var(--radius-lg)); }
+.champ-shot img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transform: scale(1.25); transition: transform 1.2s var(--pop); }
+.champ-shot.in img { transform: scale(1); }
+.champ-shot:hover { transform: translateY(-6px) scale(1.015); }
+
+.champ-said { position: relative; isolation: isolate; }
+.champ-said::before { /* on-brand ring shape behind the number */
+  content: ""; position: absolute; left: -34px; top: -46px; width: 150px; height: 150px;
+  border: 2px solid rgba(229,55,43,.28); border-radius: 50%; z-index: -1;
+}
+.champ-index { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--red); display: block; margin-bottom: .6rem; }
+.champ-big { font-size: clamp(1.9rem, 4vw, 3.4rem); font-weight: 800; line-height: 1.04; letter-spacing: -.02em; color: #fff; }
+.champ-big em { color: var(--red); font-style: normal; }
+.champ-sub { margin-top: 1.3rem; color: rgba(255,255,255,.62); font-size: 1.06rem; max-width: 44ch; }
+
+@media (prefers-reduced-motion: reduce) {
+  .champ-shot { clip-path: inset(0 0 0 0 round var(--radius-lg)); transition: none; }
+  .champ-shot img { transform: none; transition: none; }
+}
 
 /* ==========================================================================
    CONTACT
@@ -488,7 +514,8 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
   .nav-toggle { display: flex; }
   .story-grid, .contact-grid { grid-template-columns: 1fr; }
   .story-figure { order: -1; }
-  .champ-grid { grid-template-columns: 1fr; }
+  .champ-feature, .champ-feature.reverse { grid-template-columns: 1fr; gap: 1.6rem; }
+  .champ-feature.reverse .champ-shot, .champ-feature.reverse .champ-said { order: 0; }
   .service { grid-template-columns: auto 1fr; }
   .service-link { grid-column: 2; justify-self: start; margin-top: .4rem; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
