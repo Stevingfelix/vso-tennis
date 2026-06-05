@@ -169,27 +169,15 @@
   var reelToggle = document.getElementById("reelToggle");
   var reelTrack = document.querySelector(".showreel-track");
 
-  if (reelToggle && reel) {
-    var ico = reelToggle.querySelector(".reel-ico");
-    var lbl = reelToggle.querySelector(".reel-label");
-    function setReel(playing) {
-      ico.setAttribute("data-state", playing ? "pause" : "play");
-      lbl.textContent = playing ? "Pause" : "Watch";
-    }
-    reelToggle.addEventListener("click", function () {
-      if (reel.paused) { reel.play(); setReel(true); } else { reel.pause(); setReel(false); }
-    });
-    // autoplay muted when the reel scrolls into view (desktop / motion ok)
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting && !reduce) {
-            if (!reel.src && !reel.querySelector("source").src) { /* source already set */ }
-            var p = reel.play(); if (p && p.then) p.then(function () { setReel(true); }).catch(function () {});
-          } else { reel.pause(); setReel(false); }
-        });
-      }, { threshold: 0.5 }).observe(reelVideo);
-    }
+  // autoplay the muted loop while the reel is in view; pause when it leaves
+  if (reel && reelVideo && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && !reduce) {
+          var p = reel.play(); if (p && p.catch) p.catch(function () {});
+        } else { reel.pause(); }
+      });
+    }, { threshold: 0.4 }).observe(reelVideo);
   }
 
   /* ---------- Parallax engine (rAF, scroll-linked) ---------- */
@@ -219,9 +207,11 @@
       var total = tr.height - vh;
       var prog = total > 0 ? Math.min(1, Math.max(0, -tr.top / total)) : 0;
       if (reelProgress) reelProgress.style.width = (prog * 100).toFixed(1) + "%";
-      if (reelVideo && !reduce) {
-        var scale = 1.08 - prog * 0.08; // gentle zoom on the contained clip
+      if (reelVideo && !reduce && window.innerWidth > 760) {
+        var scale = 1.14 - prog * 0.14; // cinematic zoom (desktop full-bleed only)
         reelVideo.style.transform = "scale(" + scale.toFixed(3) + ")";
+      } else if (reelVideo) {
+        reelVideo.style.transform = "none";
       }
     }
 
@@ -241,16 +231,18 @@
     var ringLabel = ring.querySelector(".cursor-label");
 
     var mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    var rx = mx, ry = my;
+    var rx = mx, ry = my, rafId = null;
+    function follow() {
+      rx += (mx - rx) * 0.2; ry += (my - ry) * 0.2;
+      ring.style.transform = "translate3d(" + rx.toFixed(2) + "px," + ry.toFixed(2) + "px,0)";
+      if (Math.abs(mx - rx) + Math.abs(my - ry) < 0.5) { rafId = null; return; } // settled — stop
+      rafId = window.requestAnimationFrame(follow);
+    }
     document.addEventListener("mousemove", function (e) {
       mx = e.clientX; my = e.clientY;
       dot.style.transform = "translate3d(" + mx + "px," + my + "px,0)";
+      if (rafId === null) rafId = window.requestAnimationFrame(follow); // wake on movement
     });
-    (function follow() {
-      rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-      ring.style.transform = "translate3d(" + rx.toFixed(2) + "px," + ry.toFixed(2) + "px,0)";
-      window.requestAnimationFrame(follow);
-    })();
 
     document.addEventListener("mouseover", function (e) {
       var media = e.target.closest("[data-media]");
@@ -312,14 +304,15 @@
   /* ---------- Mobile nav ---------- */
   var toggle = document.getElementById("navToggle");
   var nav = document.getElementById("nav");
-  toggle.addEventListener("click", function () {
-    var open = nav.classList.toggle("open");
+  function setMenu(open) {
+    nav.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    document.body.style.overflow = open ? "hidden" : "";
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  });
-  nav.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
-  });
+  }
+  toggle.addEventListener("click", function () { setMenu(!nav.classList.contains("open")); });
+  nav.addEventListener("click", function (e) { if (e.target.tagName === "A") setMenu(false); });
 
   /* ---------- Contact form → WhatsApp (no backend) ---------- */
   var contactForm = document.querySelector(".contact-form");
@@ -380,6 +373,7 @@
   }
   function buildTrail() {
     if (reduce) return;
+    if (trail) trail.style.height = "0px"; // collapse first so we don't measure our own height
     var W = document.documentElement.clientWidth;
     var H = document.documentElement.scrollHeight;
     trailH = H; trailCx = W / 2;
