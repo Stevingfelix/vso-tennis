@@ -315,6 +315,7 @@
       programme: { text: "PLAY",   size: 31, css: "top:50%;right:-2%;transform:translateY(-50%)" },
       videos:    { text: "REPLAY", size: 23, css: "bottom:-5%;left:-2%" },
       gallery:   { text: "RALLY",  size: 27, css: "top:-3%;right:-2%" },
+      benefits:  { text: "MIND",   size: 30, css: "bottom:-4%;right:-2%" },
       champions: { text: "FOR ALL", size: 24, mods: "lite", css: "bottom:-4%;left:-2%" },
       contact:   { text: "PLAY",   size: 30, css: "top:36%;left:-2%" }
     };
