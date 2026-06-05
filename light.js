@@ -321,6 +321,24 @@
     if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
   });
 
+  /* ---------- Contact form → WhatsApp (no backend) ---------- */
+  var contactForm = document.querySelector(".contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var val = function (n) { var el = contactForm.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ""; };
+      var lines = [
+        "Hello VSO, I'd like to enquire.",
+        "Name: " + val("name"),
+        val("organisation") ? "School/Org: " + val("organisation") : "",
+        "Phone/Email: " + val("contact"),
+        "Interested in: " + val("interest"),
+        val("message") ? "Message: " + val("message") : ""
+      ].filter(Boolean);
+      window.open("https://wa.me/2348103337049?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+    });
+  }
+
   /* ---------- Header state ---------- */
   var header = document.querySelector(".site-header");
   function headerState() { header.classList.toggle("scrolled", window.scrollY > 24); }

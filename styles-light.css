@@ -503,6 +503,23 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 .endorse-copy p { color: rgba(255,255,255,.88); font-size: 1.08rem; }
 
 /* ==========================================================================
+   STICKY MOBILE CTA — always-available WhatsApp action on phones
+   ========================================================================== */
+.mobile-cta { display: none; }
+@media (max-width: 760px) {
+  .mobile-cta {
+    display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+    position: fixed; left: 14px; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    z-index: 90; padding: .95em 1.4em; border-radius: 999px;
+    background: var(--red); color: #fff; font-weight: 700; font-size: 1rem;
+    box-shadow: 0 14px 34px -10px rgba(229,55,43,.65);
+    transition: transform .3s var(--pop);
+  }
+  .mobile-cta:active { transform: scale(.96); transition-duration: .1s; }
+  .site-footer { padding-bottom: 90px; } /* keep footer clear of the bar */
+}
+
+/* ==========================================================================
    BRAND SHAPES — one ball-derived language: rings, an arc, one soft glow
    ========================================================================== */
 /* big outlined ring bleeding off the programme section */
