@@ -214,8 +214,6 @@
         reelVideo.style.transform = "none";
       }
     }
-
-    updateTrail();
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
@@ -366,71 +364,6 @@
       );
     });
   })();
-
-  /* ---------- Travelling ball + trail ---------- */
-  var SVGNS = "http://www.w3.org/2000/svg";
-  var trail = null, trailPath = null, trailBall = null;
-  var trailH = 0, trailCx = 0, trailAmp = 0, trailWaves = 6;
-
-  function svgCircle(cx, cy, r, cls) {
-    var c = document.createElementNS(SVGNS, "circle");
-    c.setAttribute("cx", cx); c.setAttribute("cy", cy); c.setAttribute("r", r);
-    c.setAttribute("class", cls);
-    return c;
-  }
-  function buildTrail() {
-    if (reduce) return;
-    if (trail) trail.style.height = "0px"; // collapse first so we don't measure our own height
-    var W = document.documentElement.clientWidth;
-    var H = document.documentElement.scrollHeight;
-    trailH = H; trailCx = W / 2;
-    trailAmp = Math.min(W * 0.3, 380);
-    trailWaves = Math.max(4, Math.min(9, Math.round(H / (window.innerHeight * 1.15))));
-
-    var steps = 90, d = "";
-    for (var i = 0; i <= steps; i++) {
-      var t = i / steps, y = t * H;
-      var x = trailCx + trailAmp * Math.sin(t * Math.PI * trailWaves);
-      d += (i === 0 ? "M" : "L") + x.toFixed(1) + " " + y.toFixed(1) + " ";
-    }
-    if (!trail) {
-      trail = document.createElementNS(SVGNS, "svg");
-      trail.setAttribute("class", "trail-svg");
-      trail.setAttribute("preserveAspectRatio", "none");
-      trail.setAttribute("aria-hidden", "true");
-      trailPath = document.createElementNS(SVGNS, "path");
-      trailPath.setAttribute("class", "trail-path");
-      trailPath.setAttribute("pathLength", "1");
-      trailPath.setAttribute("stroke-dasharray", "1 1");
-      var g = document.createElementNS(SVGNS, "g");
-      g.appendChild(svgCircle(0, 0, 22, "trail-ball-glow"));
-      g.appendChild(svgCircle(0, 0, 8, "trail-ball"));
-      g.appendChild(svgCircle(-2.4, -2.4, 2.4, "trail-ball-core"));
-      trailBall = g;
-      trail.appendChild(trailPath);
-      trail.appendChild(g);
-      document.body.insertBefore(trail, document.body.firstChild);
-    }
-    trail.setAttribute("viewBox", "0 0 " + W + " " + H);
-    trail.setAttribute("width", W);
-    trail.setAttribute("height", H);
-    trail.style.height = H + "px";
-    trailPath.setAttribute("d", d.trim());
-    updateTrail();
-  }
-  function updateTrail() {
-    if (reduce || !trail) return;
-    var ballY = Math.max(0, Math.min(trailH, window.scrollY + window.innerHeight * 0.5));
-    var frac = trailH ? ballY / trailH : 0;
-    trailPath.setAttribute("stroke-dashoffset", (1 - frac).toFixed(4));
-    var x = trailCx + trailAmp * Math.sin(frac * Math.PI * trailWaves);
-    trailBall.setAttribute("transform", "translate(" + x.toFixed(1) + "," + ballY.toFixed(1) + ")");
-  }
-  buildTrail();
-  window.addEventListener("load", buildTrail);
-  window.addEventListener("resize", buildTrail);
-  setTimeout(buildTrail, 1200);
-  setTimeout(buildTrail, 2600);
 
   /* ---------- Year ---------- */
   var y = document.getElementById("year");

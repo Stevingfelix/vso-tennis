@@ -210,12 +210,15 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 /* header legibility over the photo hero (top of page only) */
 .site-header:not(.scrolled) .brand-name { color: #fff; }
 .site-header:not(.scrolled) .brand-sub { color: rgba(255,255,255,.7); }
-.site-header:not(.scrolled) .nav a:not(.nav-cta) { color: rgba(255,255,255,.92); }
-.site-header:not(.scrolled) .nav a:not(.nav-cta):hover { color: #fff; }
-.site-header:not(.scrolled) .nav-cta { background: rgba(11,12,15,.34); border: 1px solid rgba(255,255,255,.6); color: #fff; backdrop-filter: blur(6px); }
-.site-header:not(.scrolled) .nav-cta:hover { background: var(--red); border-color: var(--red); color: #fff; }
+/* these colour the inline desktop nav over the hero — must NOT leak into the
+   mobile modal (white links on a white card = invisible), so desktop-only */
+@media (min-width: 861px) {
+  .site-header:not(.scrolled) .nav a:not(.nav-cta) { color: rgba(255,255,255,.92); }
+  .site-header:not(.scrolled) .nav a:not(.nav-cta):hover { color: #fff; }
+  .site-header:not(.scrolled) .nav-cta { background: rgba(11,12,15,.34); border: 1px solid rgba(255,255,255,.6); color: #fff; backdrop-filter: blur(6px); }
+  .site-header:not(.scrolled) .nav-cta:hover { background: var(--red); border-color: var(--red); color: #fff; }
+}
 .site-header:not(.scrolled) .nav-toggle span { background: #fff; }
-.nav.open a:not(.nav-cta) { color: var(--ink); }
 
 /* ==========================================================================
    TICKER
@@ -436,8 +439,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 }
 
 /* ==========================================================================
-   BACKGROUND SYSTEM — oversized ghost type + a travelling ball that
-   stitches the page together as you scroll.
+   BACKGROUND SYSTEM — oversized ghost type behind the sections.
    ========================================================================== */
 .theme-light main > section { position: relative; }
 .theme-light main > section > .wrap { position: relative; z-index: 2; }
@@ -451,21 +453,10 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 }
 .ghost.lite { color: rgba(255,255,255,.06); }
 .ghost.red  { color: rgba(229,55,43,.07); }
-/* clip ghost bleed to the section (keeps the body-level trail untouched; avoids page overflow) */
+/* clip ghost bleed to the section (avoids page overflow) */
 .theme-light .story, .theme-light .programme, .theme-light .videos,
 .theme-light .gallery, .theme-light .contact, .theme-light .champions,
 .theme-light .benefits { overflow: hidden; }
-
-/* travelling ball + trail (full-document SVG overlay) */
-.trail-svg {
-  position: absolute; top: 0; left: 0; width: 100%; z-index: 0;
-  pointer-events: none; overflow: visible;
-}
-.trail-path { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-linecap: round; opacity: .55; }
-.trail-ball-glow { fill: var(--red); opacity: .18; }
-.trail-ball { fill: var(--red); }
-.trail-ball-core { fill: #fff; opacity: .9; }
-@media (prefers-reduced-motion: reduce) { .trail-svg { display: none; } }
 
 /* ==========================================================================
    BRAND BAND — full-bleed orange brand moment
@@ -598,12 +589,13 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
   .nav {
     position: fixed; z-index: 195;
     top: 50%; left: 50%; width: min(86vw, 360px);
-    transform: translate(-50%, -48%) scale(.94);
+    transform: translate(-50%, -50%) scale(.6);
     flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
     padding: 1.4rem 1.5rem 1.5rem; background: #fff;
     border-radius: 22px; box-shadow: 0 30px 80px -20px rgba(16,18,22,.55), 0 2px 0 rgba(255,255,255,.6) inset;
     opacity: 0; visibility: hidden; max-height: 86svh; overflow-y: auto;
-    transition: opacity .35s var(--ease), visibility .35s, transform .45s var(--pop);
+    transform-origin: center center;
+    transition: opacity .3s var(--ease), visibility .3s, transform .42s var(--pop);
   }
   .nav.open { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
 
@@ -682,6 +674,8 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 @media (max-width: 640px) {
   /* pull hero content up so it sits closer to the header */
   .hero { align-items: center; min-height: 88svh; padding-top: 86px; padding-bottom: 44px; }
+  /* frame the coach (centre of the photo) above the copy on the narrow crop */
+  .hero-media img { object-position: 54% 30%; }
   /* tighten section spacing on mobile */
   .section { padding-block: clamp(50px, 9vw, 76px); }
   /* keep the kicker's presence (match the desktop feel) */
