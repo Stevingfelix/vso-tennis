@@ -48,8 +48,12 @@
   var IMG_OFFSET = VIDEOS.length;
 
   /* ---------- Build videos section ---------- */
+  /* data-preview="N" on the grid => show only the first N (homepage teaser);
+     omit it on the dedicated page to show everything */
   var videoGrid = document.getElementById("videoGrid");
-  VIDEOS.forEach(function (v, i) {
+  if (videoGrid) {
+  var vPreview = parseInt(videoGrid.getAttribute("data-preview"), 10);
+  (isNaN(vPreview) ? VIDEOS : VIDEOS.slice(0, vPreview)).forEach(function (v, i) {
     var card = document.createElement("button");
     card.className = "video-card";
     card.type = "button";
@@ -86,10 +90,13 @@
     card.addEventListener("click", function () { openLightbox(i); });
     videoGrid.appendChild(card);
   });
+  }
 
   /* ---------- Build photo gallery ---------- */
   var masonry = document.getElementById("masonry");
-  IMAGES.forEach(function (item, i) {
+  if (masonry) {
+  var gPreview = parseInt(masonry.getAttribute("data-preview"), 10);
+  (isNaN(gPreview) ? IMAGES : IMAGES.slice(0, gPreview)).forEach(function (item, i) {
     var tile = document.createElement("button");
     tile.className = "tile";
     tile.type = "button";
@@ -106,19 +113,22 @@
     tile.addEventListener("click", function () { openLightbox(IMG_OFFSET + i); });
     masonry.appendChild(tile);
   });
+  }
 
   /* ---------- Gallery filters ---------- */
   var filters = document.getElementById("galleryFilters");
-  filters.addEventListener("click", function (e) {
-    var btn = e.target.closest(".chip");
-    if (!btn) return;
-    filters.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("is-active"); });
-    btn.classList.add("is-active");
-    var f = btn.getAttribute("data-filter");
-    masonry.querySelectorAll(".tile").forEach(function (t) {
-      t.classList.toggle("is-hidden", !(f === "all" || t.getAttribute("data-cat") === f));
+  if (filters && masonry) {
+    filters.addEventListener("click", function (e) {
+      var btn = e.target.closest(".chip");
+      if (!btn) return;
+      filters.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      var f = btn.getAttribute("data-filter");
+      masonry.querySelectorAll(".tile").forEach(function (t) {
+        t.classList.toggle("is-hidden", !(f === "all" || t.getAttribute("data-cat") === f));
+      });
     });
-  });
+  }
 
   /* ---------- Lightbox ---------- */
   var lb = document.getElementById("lightbox");
@@ -151,16 +161,18 @@
   }
   function step(dir) { render((current + dir + LB.length) % LB.length); }
 
-  document.getElementById("lbClose").addEventListener("click", closeLightbox);
-  document.getElementById("lbNext").addEventListener("click", function () { step(1); });
-  document.getElementById("lbPrev").addEventListener("click", function () { step(-1); });
-  lb.addEventListener("click", function (e) { if (e.target === lb) closeLightbox(); });
-  document.addEventListener("keydown", function (e) {
-    if (!lb.classList.contains("open")) return;
-    if (e.key === "Escape") closeLightbox();
-    else if (e.key === "ArrowRight") step(1);
-    else if (e.key === "ArrowLeft") step(-1);
-  });
+  if (lb) {
+    document.getElementById("lbClose").addEventListener("click", closeLightbox);
+    document.getElementById("lbNext").addEventListener("click", function () { step(1); });
+    document.getElementById("lbPrev").addEventListener("click", function () { step(-1); });
+    lb.addEventListener("click", function (e) { if (e.target === lb) closeLightbox(); });
+    document.addEventListener("keydown", function (e) {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowRight") step(1);
+      else if (e.key === "ArrowLeft") step(-1);
+    });
+  }
 
   /* ---------- Showreel: scroll parallax + progress ---------- */
   var reel = document.getElementById("reel");
@@ -339,7 +351,9 @@
 
   /* ---------- Header state ---------- */
   var header = document.querySelector(".site-header");
-  function headerState() { header.classList.toggle("scrolled", window.scrollY > 24); }
+  /* pages without a dark hero (gallery.html / videos.html) keep the solid header */
+  var hasHero = !!document.querySelector(".hero");
+  function headerState() { header.classList.toggle("scrolled", !hasHero || window.scrollY > 24); }
   headerState();
   window.addEventListener("scroll", headerState, { passive: true });
 
