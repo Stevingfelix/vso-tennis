@@ -365,6 +365,15 @@
     });
   })();
 
+  /* ---------- Back to top ---------- */
+  /* #top sits on the fixed header, so a plain anchor jump scrolls nowhere */
+  document.querySelectorAll('a[href="#top"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+  });
+
   /* ---------- Year ---------- */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
