@@ -7,3 +7,6 @@ CLAUDE.md
 .DS_Store
 Thumbs.db
 *.log
+
+# staging dump (raw WhatsApp media) — not for the site
+more tennis/
