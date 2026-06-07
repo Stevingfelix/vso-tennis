@@ -27,6 +27,8 @@
     { cat: "endorsements", src: "assets/img/endorsements/commissioner-gbenga-omotoso.jpg", tag: "Honours", caption: "With Gbenga Omotoso — Lagos State Commissioner for Information and Strategy." },
     { cat: "endorsements", src: "assets/img/endorsements/toriola-and-ojebode.jpg", tag: "Honours", caption: "Segun Toriola — former African and Commonwealth Table Tennis Champion and seven-time Olympian — with Michael Ojebode, Nigeria's Olympic table tennis coach." },
     { cat: "endorsements", src: "assets/img/endorsements/osun-deputy-governor-champions.jpg", tag: "Honours", caption: "The Deputy Governor of Osun State with Kasali Lasisi (former African Table Tennis Champion), Bose Kafo (former African Women's Table Tennis Champion and five-time Olympian) and Barrister Wahab Shitu (SAN)." },
+    { cat: "endorsements", src: "assets/img/endorsements/dr-femi-olugbile.jpg", tag: "Honours", caption: "Dr. Femi Olugbile — member of the ITTF Sports Science Committee." },
+    { cat: "endorsements", src: "assets/img/endorsements/francis-sule-kasali-lasisi.jpg", tag: "Honours", caption: "Francis Sule — Nigeria's first professional table tennis player — with Kasali Lasisi, former African Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/medal-presentation.jpg", tag: "Honours", caption: "Medal presentation at a championship" },
     { cat: "endorsements", src: "assets/img/endorsements/medal-winner-handshake.jpg", tag: "Honours", caption: "Congratulating a medal winner" },
     { cat: "endorsements", src: "assets/img/endorsements/awards-handshake-trophies.jpg", tag: "Honours", caption: "Awards day — trophies on the line" },
