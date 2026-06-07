@@ -9,29 +9,36 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  /* ---------- Intro splash (homepage only, once per session) ---------- */
+  /* ---------- Preloader (every page) — covers until the page has loaded ---------- */
   var intro = document.getElementById("intro");
   if (intro) {
-    if (sessionStorage.getItem("vsoIntroSeen")) {
+    document.body.classList.add("intro-lock");
+    intro.addEventListener("transitionend", function () {
       if (intro.parentNode) intro.parentNode.removeChild(intro);
-    } else {
-      document.body.classList.add("intro-lock");
-      intro.addEventListener("transitionend", function () {
-        if (intro.parentNode) intro.parentNode.removeChild(intro);
-      });
+    });
+    var minMs = reduce ? 300 : 1100;   // let the brand animation breathe
+    var maxMs = 5000;                   // safety cap if something hangs
+    var t0 = Date.now();
+    var done = false;
+    function hideIntro() {
+      if (done) return; done = true;
+      var wait = Math.max(0, minMs - (Date.now() - t0));
       setTimeout(function () {
         intro.classList.add("intro--done");
         document.body.classList.remove("intro-lock");
-        try { sessionStorage.setItem("vsoIntroSeen", "1"); } catch (e) {}
-      }, reduce ? 600 : 1900);
+      }, wait);
     }
+    if (document.readyState === "complete") hideIntro();
+    else window.addEventListener("load", hideIntro);
+    setTimeout(hideIntro, maxMs);
   }
 
   /* ---------- Media data ---------- */
   var IMAGES = [
     { cat: "action", src: "assets/img/action/womens-singles-rally.jpg", tag: "Match", caption: "Women's singles rally at a VSO tournament" },
     { cat: "action", src: "assets/img/action/mens-singles-serve.jpg", tag: "Match", caption: "Serving in a men's singles match" },
-    { cat: "action", src: "assets/img/action/vintage-doubles-match.jpg", tag: "Heritage", caption: "Table tennis, the way it always was" },
+    { cat: "action", src: "assets/img/action/vintage-doubles-match.jpg", tag: "Heritage", caption: "The Director of Value Sports One (VSO) in the United States during his playing days — he represented Michigan State after leaving Nigeria." },
+    { cat: "action", src: "assets/img/action/director-usa-michigan.jpg", tag: "Heritage", caption: "The Director of Value Sports One (VSO) in the United States during his playing days — he represented Michigan State after leaving Nigeria." },
     { cat: "training", src: "assets/img/training/coach-teaching-grip.jpg", tag: "Coaching", caption: "Coach guiding a young player's grip" },
     { cat: "training", src: "assets/img/training/schoolkids-rackets-raised.jpg", tag: "Schools", caption: "Schoolchildren ready to play, rackets raised" },
     { cat: "training", src: "assets/img/training/kids-session-hands-raised.jpg", tag: "Schools", caption: "A buzzing school session" },
