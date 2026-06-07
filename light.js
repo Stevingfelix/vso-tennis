@@ -37,7 +37,6 @@
   var IMAGES = [
     { cat: "action", src: "assets/img/action/womens-singles-rally.jpg", tag: "Match", caption: "Women's singles rally at a VSO tournament" },
     { cat: "action", src: "assets/img/action/mens-singles-serve.jpg", tag: "Match", caption: "Serving in a men's singles match" },
-    { cat: "action", src: "assets/img/action/vintage-doubles-match.jpg", tag: "Heritage", caption: "The Director of Value Sports One (VSO) in the United States during his playing days — he represented Michigan State after leaving Nigeria." },
     { cat: "action", src: "assets/img/action/director-usa-michigan.jpg", tag: "Heritage", caption: "The Director of Value Sports One (VSO) in the United States during his playing days — he represented Michigan State after leaving Nigeria." },
     { cat: "training", src: "assets/img/training/coach-teaching-grip.jpg", tag: "Coaching", caption: "Coach guiding a young player's grip" },
     { cat: "training", src: "assets/img/training/schoolkids-rackets-raised.jpg", tag: "Schools", caption: "Schoolchildren ready to play, rackets raised" },
