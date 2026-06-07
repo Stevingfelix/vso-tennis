@@ -537,6 +537,19 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 .benefit-foot { text-align: center; margin-top: 2.4rem; font-size: clamp(1.05rem, 2vw, 1.35rem); color: var(--ink); }
 .benefit-foot strong { color: var(--red); }
 
+/* benefits page — "great for every age" + "more benefits" blocks */
+.benefits-page .section { padding-block: clamp(48px, 7vw, 96px); }
+.tinted { background: var(--paper-2); }
+.age-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.age-card { padding: 1.7rem 1.6rem; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red); border-radius: var(--radius); }
+.age-card h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 1.6rem; letter-spacing: .02em; margin-bottom: .7rem; }
+.age-card p { color: var(--ink-2); font-size: .98rem; line-height: 1.6; }
+.more-grid { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: clamp(28px, 4vw, 60px); }
+.more-item { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.more-item h4 { display: flex; gap: .6em; font-family: var(--body); font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--ink); margin-bottom: .55rem; }
+.more-item h4 i { font-family: var(--display); font-style: normal; color: var(--red); font-size: 1rem; line-height: 1; }
+.more-item p { color: var(--ink-2); font-size: .95rem; line-height: 1.55; }
+
 /* ==========================================================================
    ENDORSEMENT BAND — full-bleed photo, fades to paper
    ========================================================================== */
@@ -607,6 +620,8 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
   .video-grid { grid-template-columns: 1fr 1fr; }
   .video-grid .video-card:first-child { grid-column: span 2; grid-row: auto; }
   .benefit-grid { grid-template-columns: 1fr 1fr; }
+  .age-grid { grid-template-columns: 1fr; }
+  .more-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 860px) {
   /* ---- mini modal popup over a blurred page ---- */
@@ -728,6 +743,7 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
   .video-grid { grid-template-columns: 1fr; }
   .video-grid .video-card:first-child { grid-column: auto; }
   .benefit-grid { grid-template-columns: 1fr; }
+  .more-grid { grid-template-columns: 1fr; }
   /* stack the About facts so the display text has room to breathe */
   .about-facts { grid-template-columns: 1fr; }
   .about-facts .fact { border-right: 0; border-bottom: 1px solid var(--line); padding: 1rem 0; }
