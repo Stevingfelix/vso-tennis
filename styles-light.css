@@ -537,9 +537,9 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 .benefit-foot { text-align: center; margin-top: 2.4rem; font-size: clamp(1.05rem, 2vw, 1.35rem); color: var(--ink); }
 .benefit-foot strong { color: var(--red); }
 
-/* benefits page — "great for every age" + "more benefits" blocks */
-.benefits-page .section { padding-block: clamp(48px, 7vw, 96px); }
-.tinted { background: var(--paper-2); }
+/* benefits — "great for every age" + "more benefits" sub-blocks */
+.benefits-sub { margin-top: clamp(46px, 7vw, 88px); }
+.benefits-subhead { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.5rem, 3.4vw, 2.3rem); letter-spacing: .02em; margin-bottom: clamp(20px, 3vw, 32px); }
 .age-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .age-card { padding: 1.7rem 1.6rem; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red); border-radius: var(--radius); }
 .age-card h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 1.6rem; letter-spacing: .02em; margin-bottom: .7rem; }
