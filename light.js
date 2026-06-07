@@ -9,6 +9,24 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  /* ---------- Intro splash (homepage only, once per session) ---------- */
+  var intro = document.getElementById("intro");
+  if (intro) {
+    if (sessionStorage.getItem("vsoIntroSeen")) {
+      if (intro.parentNode) intro.parentNode.removeChild(intro);
+    } else {
+      document.body.classList.add("intro-lock");
+      intro.addEventListener("transitionend", function () {
+        if (intro.parentNode) intro.parentNode.removeChild(intro);
+      });
+      setTimeout(function () {
+        intro.classList.add("intro--done");
+        document.body.classList.remove("intro-lock");
+        try { sessionStorage.setItem("vsoIntroSeen", "1"); } catch (e) {}
+      }, reduce ? 600 : 1900);
+    }
+  }
+
   /* ---------- Media data ---------- */
   var IMAGES = [
     { cat: "action", src: "assets/img/action/womens-singles-rally.jpg", tag: "Match", caption: "Women's singles rally at a VSO tournament" },

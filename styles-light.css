@@ -161,6 +161,27 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor .til
 /* ==========================================================================
    HEADER
    ========================================================================== */
+/* ==========================================================================
+   INTRO SPLASH — branded overlay on first open (homepage)
+   ========================================================================== */
+.intro { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; text-align: center; background: var(--ink); color: #fff; transition: opacity .6s var(--ease), visibility .6s; }
+.intro.intro--done { opacity: 0; visibility: hidden; }
+.intro-seen .intro { display: none; }
+.intro-inner { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; padding: var(--gutter); }
+.intro .brand-badge { width: 74px; height: 74px; font-size: 1.7rem; border-radius: 18px; transform: scale(.55); opacity: 0; animation: introPop .7s var(--pop) forwards; }
+.intro-name { font-family: var(--display); text-transform: uppercase; font-size: clamp(2.1rem, 7vw, 3.6rem); line-height: .95; opacity: 0; animation: introUp .7s var(--ease-out) .14s forwards; }
+.intro-desc { font-size: clamp(.72rem, 2.4vw, .92rem); letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.62); opacity: 0; animation: introUp .7s var(--ease-out) .28s forwards; max-width: 90vw; }
+.intro-desc b { color: var(--red); font-weight: 700; }
+.intro-bar { width: 0; height: 2px; background: var(--red); margin-top: .3rem; animation: introBar 1.5s var(--ease) .3s forwards; }
+@keyframes introPop { to { transform: scale(1); opacity: 1; } }
+@keyframes introUp { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes introBar { to { width: 120px; } }
+body.intro-lock { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .intro .brand-badge, .intro-name, .intro-desc { animation: none; opacity: 1; transform: none; }
+  .intro-bar { animation: none; width: 120px; }
+}
+
 .site-header { position: fixed; inset: 0 0 auto 0; z-index: 100; padding: 0; transition: padding .4s var(--ease-out); }
 /* on scroll the bar detaches into a floating, rounded pill */
 .site-header.scrolled { padding: 12px clamp(12px, 4vw, 30px); }
