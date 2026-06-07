@@ -565,6 +565,12 @@ body.intro-lock { overflow: hidden; }
 .benefit ul li { font-size: .92rem; color: var(--ink-2); padding: .55rem 0 .55rem 1.1rem; position: relative; border-top: 1px solid var(--line); }
 .benefit ul li:first-child { border-top: 0; }
 .benefit ul li::before { content: ""; position: absolute; left: 0; top: 1.2rem; width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+/* recognition / trust strip */
+.cred-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: clamp(28px, 4vw, 60px); border-top: 1px solid var(--line); }
+.cred-item { padding: 1.15rem 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: .2rem; }
+.cred-item .nm { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(1.1rem, 1.7vw, 1.4rem); line-height: 1.02; letter-spacing: .01em; color: var(--ink); }
+.cred-item .rl { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--red); }
+
 .benefit-foot { text-align: center; margin-top: 2.4rem; font-size: clamp(1.05rem, 2vw, 1.35rem); color: var(--ink); }
 .benefit-foot strong { color: var(--red); }
 
@@ -653,6 +659,7 @@ body.intro-lock { overflow: hidden; }
   .benefit-grid { grid-template-columns: 1fr 1fr; }
   .age-grid { grid-template-columns: 1fr; }
   .more-grid { grid-template-columns: 1fr 1fr; }
+  .cred-list { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 860px) {
   /* ---- mini modal popup over a blurred page ---- */
@@ -787,6 +794,7 @@ body.intro-lock { overflow: hidden; }
   .video-grid .video-card:first-child { grid-column: auto; }
   .benefit-grid { grid-template-columns: 1fr; }
   .more-grid { grid-template-columns: 1fr; }
+  .cred-list { grid-template-columns: 1fr; }
   /* stack the About facts so the display text has room to breathe */
   .about-facts { grid-template-columns: 1fr; }
   .about-facts .fact { border-right: 0; border-bottom: 1px solid var(--line); padding: 1rem 0; }
