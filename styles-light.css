@@ -753,6 +753,13 @@ body.intro-lock { overflow: hidden; }
   .hero { align-items: center; min-height: 88svh; padding-top: 86px; padding-bottom: 44px; }
   /* frame the coach (centre of the photo) above the copy on the narrow crop */
   .hero-media img { object-position: 54% 30%; }
+  /* footer: stack and centre every element on mobile */
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .footer-about { margin-inline: auto; }
+  .footer-brand { justify-content: center; }
+  .footer-links { align-items: center; }
+  .footer-links a:hover { padding-left: 0; }
+  .footer-bottom { align-items: center; text-align: center; }
   /* tighten section spacing on mobile */
   .section { padding-block: clamp(50px, 9vw, 76px); }
   /* keep the kicker's presence (match the desktop feel) */
