@@ -51,11 +51,13 @@
     { cat: "endorsements", src: "assets/img/endorsements/coach-with-cosmas-maduka.jpg", tag: "Honours", caption: "Coach Laja with Dr. Cosmus Maduka — President of the Coscharis Group, former President of the Nigeria Table Tennis Federation (NTTA) and a former member of the International Table Tennis Federation (ITTF)." },
     { cat: "endorsements", src: "assets/img/endorsements/commissioner-gbenga-omotoso.jpg", tag: "Honours", caption: "With Gbenga Omotoso — Lagos State Commissioner for Information and Strategy." },
     { cat: "endorsements", src: "assets/img/endorsements/toriola-and-ojebode.jpg", tag: "Honours", caption: "Segun Toriola — former African and Commonwealth Table Tennis Champion and seven-time Olympian — with Michael Ojebode, Nigeria's Olympic table tennis coach." },
+    { cat: "endorsements", src: "assets/img/endorsements/toriola-and-ojebode-2.jpg", tag: "Honours", caption: "Segun Toriola — former African and Commonwealth Table Tennis Champion and seven-time Olympian — with Michael Ojebode, Nigeria's Olympic table tennis coach." },
     { cat: "endorsements", src: "assets/img/endorsements/osun-deputy-governor-champions.jpg", tag: "Honours", caption: "The Deputy Governor of Osun State with Kasali Lasisi (former African Table Tennis Champion), Bose Kafo (former African Women's Table Tennis Champion and five-time Olympian) and Barrister Wahab Shitu (SAN)." },
     { cat: "endorsements", src: "assets/img/endorsements/dr-femi-olugbile.jpg", tag: "Honours", caption: "Dr. Femi Olugbile — member of the ITTF Sports Science Committee." },
     { cat: "endorsements", src: "assets/img/endorsements/francis-sule-kasali-lasisi.jpg", tag: "Honours", caption: "Francis Sule — Nigeria's first professional table tennis player — with Kasali Lasisi, former African Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-and-oshinaike.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshinaike — both former African Table Tennis Champions." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-champions.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshinaike — both former African Table Tennis Champions." },
+    { cat: "endorsements", src: "assets/img/endorsements/coach-with-guests-championship.jpg", tag: "Honours", caption: "Coach Laja with guests at a table tennis championship." },
     { cat: "endorsements", src: "assets/img/endorsements/medal-presentation.jpg", tag: "Honours", caption: "Medal presentation at a championship" },
     { cat: "endorsements", src: "assets/img/endorsements/medal-winner-handshake.jpg", tag: "Honours", caption: "Congratulating a medal winner" },
     { cat: "endorsements", src: "assets/img/endorsements/awards-handshake-trophies.jpg", tag: "Honours", caption: "Awards day — trophies on the line" },
@@ -72,7 +74,8 @@
     { src: "assets/video/vso-clip-02.mp4", poster: "assets/img/action/mens-singles-serve.jpg", title: "On the table", caption: "On the table" },
     { src: "assets/video/vso-clip-04.mp4", poster: "assets/img/training/schoolkids-rackets-raised.jpg", title: "School programme", caption: "School programme highlights" },
     { src: "assets/video/vso-clip-05.mp4", poster: "assets/img/portraits/coach-tournament-hall.jpg", title: "Tournament", caption: "Tournament atmosphere" },
-    { src: "assets/video/vso-clip-06.mp4", poster: "assets/img/training/kids-session-hands-raised.jpg", title: "Grassroots", caption: "Grassroots energy" }
+    { src: "assets/video/vso-clip-06.mp4", poster: "assets/img/training/kids-session-hands-raised.jpg", title: "Grassroots", caption: "Grassroots energy" },
+    { src: "assets/video/vso-clip-07.mp4", poster: "assets/img/training/vso-clip-07-poster.jpg", title: "Training rally", caption: "A coaching rally at the table" }
   ];
 
   /* Lightbox playlist = videos first, then images */
