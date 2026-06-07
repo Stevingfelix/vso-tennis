@@ -485,8 +485,9 @@ body.intro-lock { overflow: hidden; }
    ========================================================================== */
 .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(20,22,26,.86); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
 .lightbox.open { opacity: 1; visibility: visible; }
-.lb-stage { max-width: min(1100px, 92vw); max-height: 82vh; display: flex; align-items: center; justify-content: center; transform: scale(.97); transition: transform .3s var(--ease); }
-.lightbox.open .lb-stage { transform: scale(1); }
+.lb-stage { max-width: min(1100px, 92vw); max-height: 82vh; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(.92) translateY(10px); transition: transform .42s var(--ease-out), opacity .32s var(--ease); }
+.lightbox.open .lb-stage { opacity: 1; transform: scale(1) translateY(0); }
+@media (prefers-reduced-motion: reduce) { .lb-stage { transition: opacity .2s; transform: none; } }
 .lb-stage img, .lb-stage video { max-width: 92vw; max-height: 82vh; width: auto; height: auto; border-radius: 12px; box-shadow: var(--sh-lg); }
 .lb-caption { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; font-size: .9rem; color: rgba(255,255,255,.85); padding-inline: 1rem; }
 .lb-close, .lb-nav { position: absolute; z-index: 2; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background .2s, transform .3s var(--pop); }

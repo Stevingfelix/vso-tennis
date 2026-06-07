@@ -414,6 +414,19 @@
     });
   })();
 
+  /* ---------- Magnetic primary buttons (desktop, fine pointer) ---------- */
+  if (fine && !reduce) {
+    Array.prototype.forEach.call(document.querySelectorAll(".btn-primary, .btn-on-brand"), function (btn) {
+      btn.addEventListener("mousemove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var mx = e.clientX - (r.left + r.width / 2);
+        var my = e.clientY - (r.top + r.height / 2);
+        btn.style.transform = "translate(" + (mx * 0.2).toFixed(1) + "px," + (my * 0.32).toFixed(1) + "px) scale(1.05)";
+      });
+      btn.addEventListener("mouseleave", function () { btn.style.transform = ""; });
+    });
+  }
+
   /* ---------- Back to top ---------- */
   /* #top sits on the fixed header, so a plain anchor jump scrolls nowhere */
   document.querySelectorAll('a[href="#top"]').forEach(function (a) {
