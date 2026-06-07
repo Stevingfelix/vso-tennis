@@ -24,6 +24,7 @@
     { cat: "training", src: "assets/img/training/coach-with-kids.jpg", tag: "Schools", caption: "Grassroots coaching in action" },
     { cat: "endorsements", src: "assets/img/endorsements/governor-adeleke-handover-hires.jpg", tag: "Honours", caption: "Presenting the Osun State Table Tennis Youth Programme plaque to Governor Adeleke" },
     { cat: "endorsements", src: "assets/img/endorsements/coach-with-cosmas-maduka.jpg", tag: "Honours", caption: "Coach Laja with Dr. Cosmus Maduka — President of the Coscharis Group, former President of the Nigeria Table Tennis Federation (NTTA) and a former member of the International Table Tennis Federation (ITTF)." },
+    { cat: "endorsements", src: "assets/img/endorsements/commissioner-gbenga-omotoso.jpg", tag: "Honours", caption: "With Gbenga Omotoso — Lagos State Commissioner for Information and Strategy." },
     { cat: "endorsements", src: "assets/img/endorsements/medal-presentation.jpg", tag: "Honours", caption: "Medal presentation at a championship" },
     { cat: "endorsements", src: "assets/img/endorsements/medal-winner-handshake.jpg", tag: "Honours", caption: "Congratulating a medal winner" },
     { cat: "endorsements", src: "assets/img/endorsements/awards-handshake-trophies.jpg", tag: "Honours", caption: "Awards day — trophies on the line" },

@@ -10,3 +10,6 @@ Thumbs.db
 
 # staging dump (raw WhatsApp media) — not for the site
 more tennis/
+
+# raw WhatsApp dumps (root) — not for the site
+WhatsApp Image*
