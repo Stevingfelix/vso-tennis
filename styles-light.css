@@ -206,7 +206,7 @@ body.intro-lock { overflow: hidden; }
 .nav { display: flex; align-items: center; gap: 2rem; }
 /* modal-only chrome — hidden on desktop, shown inside the mobile popup */
 .nav-modal-head, .nav-backdrop { display: none; }
-.nav a { font-size: .92rem; font-weight: 600; color: var(--ink-2); position: relative; transition: color .2s; }
+.nav a { font-size: .92rem; font-weight: 600; color: var(--ink-2); position: relative; white-space: nowrap; transition: color .2s; }
 .nav a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--red); transition: width .25s var(--ease); }
 .nav a:not(.nav-cta):hover { color: var(--ink); }
 .nav a:not(.nav-cta):hover::after { width: 100%; }
@@ -253,8 +253,9 @@ body.intro-lock { overflow: hidden; }
 .site-header:not(.scrolled) .brand-name { color: #fff; }
 .site-header:not(.scrolled) .brand-sub { color: rgba(255,255,255,.7); }
 /* these colour the inline desktop nav over the hero — must NOT leak into the
-   mobile modal (white links on a white card = invisible), so desktop-only */
-@media (min-width: 861px) {
+   mobile modal (white links on a white card = invisible), so desktop-only.
+   Matches the nav-collapse breakpoint (1080px). */
+@media (min-width: 1081px) {
   .site-header:not(.scrolled) .nav a:not(.nav-cta) { color: rgba(255,255,255,.92); }
   .site-header:not(.scrolled) .nav a:not(.nav-cta):hover { color: #fff; }
   .site-header:not(.scrolled) .nav-cta { background: rgba(11,12,15,.34); border: 1px solid rgba(255,255,255,.6); color: #fff; backdrop-filter: blur(6px); }
@@ -662,7 +663,8 @@ body.intro-lock { overflow: hidden; }
   .more-grid { grid-template-columns: 1fr 1fr; }
   .cred-list { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 860px) {
+/* nav collapses to the hamburger + modal at <=1080px (8 items wrap below ~1040) */
+@media (max-width: 1080px) {
   /* ---- mini modal popup over a blurred page ---- */
   .nav-backdrop {
     display: block; position: fixed; inset: 0; z-index: 190;
@@ -735,7 +737,10 @@ body.intro-lock { overflow: hidden; }
     background: rgba(255,255,255,.96);
     -webkit-backdrop-filter: none; backdrop-filter: none;
   }
+}
 
+/* content stacking stays a true tablet/mobile breakpoint */
+@media (max-width: 860px) {
   .story-grid, .contact-grid, .about-grid { grid-template-columns: 1fr; gap: clamp(20px, 5vw, 36px); }
   .about-head { position: static; }
   .story-figure { order: -1; }
