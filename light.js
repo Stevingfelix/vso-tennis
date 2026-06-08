@@ -16,8 +16,8 @@
     intro.addEventListener("transitionend", function () {
       if (intro.parentNode) intro.parentNode.removeChild(intro);
     });
-    var minMs = reduce ? 300 : 1100;   // let the brand animation breathe
-    var maxMs = 5000;                   // safety cap if something hangs
+    var minMs = reduce ? 800 : 1700;   // keep the splash clearly visible on every load
+    var maxMs = 6000;                   // safety cap if something hangs
     var t0 = Date.now();
     var done = false;
     function hideIntro() {
