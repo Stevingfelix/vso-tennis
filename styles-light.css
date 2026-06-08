@@ -234,6 +234,7 @@ body.intro-lock { overflow: hidden; }
 .hero-inner { position: relative; z-index: 1; width: 100%; }
 .hero-copy { max-width: 660px; }
 .hero .eyebrow.light { color: rgba(255,255,255,.85); }
+.hero .eyebrow-meta { margin-top: .4rem; font-size: .68rem; letter-spacing: .2em; color: rgba(255,255,255,.62); }
 .hero-title { font-family: var(--display); font-weight: 400; font-size: clamp(3rem, 8.4vw, 7rem); line-height: .9; letter-spacing: .005em; text-transform: uppercase; margin: .8rem 0 1.2rem; color: #fff; }
 .hero-title .line { display: block; overflow: hidden; }
 .hero-title .w { display: inline-block; transform: translateY(110%); opacity: 0; transition: transform .9s var(--ease-out), opacity .9s var(--ease-out); }
