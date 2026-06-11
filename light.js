@@ -57,6 +57,9 @@
     { cat: "endorsements", src: "assets/img/endorsements/sunday-eboh-wahed-ekun.jpg", tag: "Honours", caption: "Sunday Eboh, former Africa Table Tennis Champion, with Wahed Ekun — winner of the first National Sports Festival (1973), who defeated Eboh in the intermediate boys' singles final." },
     { cat: "endorsements", src: "assets/img/endorsements/lekan-fatodu-dg-lagos-sports.jpg", tag: "Honours", caption: "Coach Laja with Hon. Lekan Fatodu — Lagos State Commissioner for Sports." },
     { cat: "endorsements", src: "assets/img/endorsements/commissioner-ogunlende-youth.jpg", tag: "Honours", caption: "Coach Laja with Hon. Mobolaji Abubakre Ogunlende — Commissioner, Lagos State Ministry of Youth & Social Development." },
+    { cat: "endorsements", src: "assets/img/endorsements/prince-kola-adewusi-deputy-gov.jpg", tag: "Honours", caption: "Coach Laja with Prince Kola Adewusi, Deputy Governor of Osun State." },
+    { cat: "endorsements", src: "assets/img/endorsements/atanda-musa.jpg", tag: "Honours", caption: "Coach Laja with Atanda Musa (aka 'Mansa Musa') — former Africa and Commonwealth Table Tennis Champion." },
+    { cat: "endorsements", src: "assets/img/endorsements/kamoru-ajisafe-pdp.jpg", tag: "Honours", caption: "Coach Laja with Hon. Kamoru Ajisafe — Chairman, PDP South-West." },
     { cat: "endorsements", src: "assets/img/endorsements/francis-sule-kasali-lasisi.jpg", tag: "Honours", caption: "Francis Sule — Nigeria's first professional table tennis player — with Kasali Lasisi, former Africa Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-and-oshinaike.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshonaike — both former Africa Table Tennis Champions." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-champions.jpg", tag: "Honours", caption: "Dr. Adesoji Tayo, President of the Nigeria Table Tennis Federation (NTTF), with Barrister Ramoni Shitta." },
@@ -78,7 +81,7 @@
     { src: "assets/video/vso-clip-04.mp4", poster: "assets/img/training/schoolkids-rackets-raised.jpg", title: "School programme", caption: "School programme highlights" },
     { src: "assets/video/vso-clip-05.mp4", poster: "assets/img/portraits/coach-tournament-hall.jpg", title: "Tournament", caption: "Tournament atmosphere" },
     { src: "assets/video/vso-clip-06.mp4", poster: "assets/img/training/kids-session-hands-raised.jpg", title: "Grassroots", caption: "Grassroots energy" },
-    { src: "assets/video/vso-clip-07.mp4", poster: "assets/img/training/vso-clip-07-poster.jpg", title: "Training rally", caption: "A coaching rally at the table" }
+    { src: "assets/video/vso-clip-07.mp4", poster: "assets/img/training/vso-clip-07-poster.jpg", title: "Barrister Wahab Shittu (SAN)", caption: "Barrister Wahab Shittu (SAN)." }
   ];
 
   /* Lightbox playlist = videos first, then images */
