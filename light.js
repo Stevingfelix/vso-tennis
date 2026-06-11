@@ -63,6 +63,7 @@
     { cat: "endorsements", src: "assets/img/endorsements/kamoru-ajisafe-pdp.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Hon. Kamoru Ajisafe — Chairman, PDP South-West." },
     { cat: "endorsements", src: "assets/img/endorsements/chief-waheed-ekun.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Chief Waheed Ekun." },
     { cat: "endorsements", src: "assets/img/endorsements/wahab-shittu.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Barrister Wahab Shittu (SAN), former table tennis player." },
+    { cat: "endorsements", src: "assets/img/endorsements/prince-wale-eletu.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Prince Wale Eletu." },
     { cat: "endorsements", src: "assets/img/endorsements/francis-sule-kasali-lasisi.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Francis Sule — Nigeria's first professional table tennis player — and Kasali Lasisi, former Africa Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-and-oshinaike.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Olawunmi 'Majek' Majekodunmi and Funke Oshonaike — both former Africa Table Tennis Champions." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-champions.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Dr. Adesoji Tayo, President of the Nigeria Table Tennis Federation (NTTF), and Barrister Ramoni Shitta." },

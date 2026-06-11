@@ -442,7 +442,9 @@ body.intro-lock { overflow: hidden; }
 .contact-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.3rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--sh-sm); transition: border-color .25s, transform .32s var(--pop), box-shadow .3s; }
 .contact-row:hover { border-color: var(--red); transform: translateX(8px) scale(1.02); box-shadow: var(--sh-md); }
 .contact-label { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-.contact-value { font-weight: 700; font-size: 1.05rem; }
+.contact-value { font-weight: 700; font-size: 1.05rem; text-align: right; }
+.contact-note { display: block; margin-top: .3rem; font-size: .8rem; font-weight: 600; color: var(--muted); }
+.footer-address { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.55; }
 .contact-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: clamp(24px, 3vw, 38px); box-shadow: var(--sh-md); }
 .contact-form h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 1.3rem; }
 .contact-form label { display: block; margin-bottom: 1rem; }
