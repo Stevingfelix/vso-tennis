@@ -411,6 +411,12 @@ body.intro-lock { overflow: hidden; }
 .champ-shot.face img { object-position: center top; }
 .champ-shot.in img { transform: scale(1); }
 .champ-shot:hover { transform: translateY(-6px) scale(1.015); }
+.champ-cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 1.6rem 1.2rem .95rem; margin: 0;
+  font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #fff;
+  background: linear-gradient(to top, rgba(11,12,15,.82), rgba(11,12,15,0));
+}
 
 .champ-said { position: relative; isolation: isolate; }
 .champ-said::before { /* on-brand ring shape behind the number */
