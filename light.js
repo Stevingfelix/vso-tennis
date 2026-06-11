@@ -55,7 +55,7 @@
     { cat: "endorsements", src: "assets/img/endorsements/dr-femi-olugbile.jpg", tag: "Honours", caption: "Dr. Femi Olugbile — member of the ITTF Sports Science Committee." },
     { cat: "endorsements", src: "assets/img/endorsements/kabiyesi-elemuren-of-emuren.jpg", tag: "Honours", caption: "Coach Laja with the Kabiyesi, the Elemuren of Emuren Land." },
     { cat: "endorsements", src: "assets/img/endorsements/sunday-eboh-wahed-ekun.jpg", tag: "Honours", caption: "Sunday Eboh, former African Table Tennis Champion, with Wahed Ekun — winner of the first National Sports Festival (1973), who defeated Eboh in the intermediate boys' singles final." },
-    { cat: "endorsements", src: "assets/img/endorsements/lekan-fatodu-dg-lagos-sports.jpg", tag: "Honours", caption: "Coach Laja with Hon. Lekan Fatodu — Director-General, Lagos State Sports Commission." },
+    { cat: "endorsements", src: "assets/img/endorsements/lekan-fatodu-dg-lagos-sports.jpg", tag: "Honours", caption: "Coach Laja with Hon. Lekan Fatodu — Lagos State Commissioner for Sports." },
     { cat: "endorsements", src: "assets/img/endorsements/francis-sule-kasali-lasisi.jpg", tag: "Honours", caption: "Francis Sule — Nigeria's first professional table tennis player — with Kasali Lasisi, former African Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-and-oshinaike.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshinaike — both former African Table Tennis Champions." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-champions.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshinaike — both former African Table Tennis Champions." },
