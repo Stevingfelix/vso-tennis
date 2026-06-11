@@ -58,7 +58,7 @@
     { cat: "endorsements", src: "assets/img/endorsements/lekan-fatodu-dg-lagos-sports.jpg", tag: "Honours", caption: "Coach Laja with Hon. Lekan Fatodu — Lagos State Commissioner for Sports." },
     { cat: "endorsements", src: "assets/img/endorsements/francis-sule-kasali-lasisi.jpg", tag: "Honours", caption: "Francis Sule — Nigeria's first professional table tennis player — with Kasali Lasisi, former Africa Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-and-oshinaike.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshonaike — both former Africa Table Tennis Champions." },
-    { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-champions.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshonaike — both former Africa Table Tennis Champions." },
+    { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-champions.jpg", tag: "Honours", caption: "Dr. Adesoji Tayo, President of the Nigeria Table Tennis Federation (NTTF), with Barrister Ramoni Shitta." },
     { cat: "endorsements", src: "assets/img/endorsements/coach-with-guests-championship.jpg", tag: "Honours", caption: "Coach Laja with guests at a table tennis championship." },
     { cat: "endorsements", src: "assets/img/endorsements/medal-presentation.jpg", tag: "Honours", caption: "Medal presentation at a championship" },
     { cat: "endorsements", src: "assets/img/endorsements/medal-winner-handshake.jpg", tag: "Honours", caption: "Congratulating a medal winner" },
