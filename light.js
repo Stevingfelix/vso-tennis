@@ -64,7 +64,7 @@
     { cat: "endorsements", src: "assets/img/endorsements/medal-presentation.jpg", tag: "Honours", caption: "Medal presentation at a championship" },
     { cat: "endorsements", src: "assets/img/endorsements/medal-winner-handshake.jpg", tag: "Honours", caption: "Congratulating a medal winner" },
     { cat: "endorsements", src: "assets/img/endorsements/awards-handshake-trophies.jpg", tag: "Honours", caption: "Awards day — trophies on the line" },
-    { cat: "endorsements", src: "assets/img/endorsements/coach-girl-dignitary.jpg", tag: "Honours", caption: "A young player honoured alongside dignitaries" },
+    { cat: "endorsements", src: "assets/img/endorsements/coach-girl-dignitary.jpg", tag: "Honours", caption: "Coach Laja and a young player with Atanda Musa (aka 'Mansa Musa') — former Africa and Commonwealth Table Tennis Champion." },
     { cat: "portraits", src: "assets/img/portraits/coach-tournament-hall.jpg", tag: "Team", caption: "Coach Laja at a tournament hall" },
     { cat: "portraits", src: "assets/img/portraits/coach-with-female-player.jpg", tag: "Team", caption: "Funke Oshonaike — former Africa Women's Champion, seven-time Olympian and current Olympic Athletes' Representative." },
     { cat: "portraits", src: "assets/img/portraits/mens-group-around-table.jpg", tag: "Team", caption: "The community around the table" },
