@@ -61,6 +61,8 @@
     { cat: "endorsements", src: "assets/img/endorsements/prince-kola-adewusi-deputy-gov.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Prince Kola Adewusi, Deputy Governor of Osun State." },
     { cat: "endorsements", src: "assets/img/endorsements/atanda-musa.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Atanda Musa (aka 'Mansa Musa') — former Africa and Commonwealth Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/kamoru-ajisafe-pdp.jpg", tag: "Honours", caption: "Director, Value Sports One (VSO) with Hon. Kamoru Ajisafe — Chairman, PDP South-West." },
+    { cat: "endorsements", src: "assets/img/endorsements/chief-waheed-ekun.jpg", tag: "Honours", caption: "Chief Waheed Ekun" },
+    { cat: "endorsements", src: "assets/img/endorsements/wahab-shittu.jpg", tag: "Honours", caption: "Barrister Wahab Shittu (SAN), former table tennis player." },
     { cat: "endorsements", src: "assets/img/endorsements/francis-sule-kasali-lasisi.jpg", tag: "Honours", caption: "Francis Sule — Nigeria's first professional table tennis player — with Kasali Lasisi, former Africa Table Tennis Champion." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-and-oshinaike.jpg", tag: "Honours", caption: "Olawunmi 'Majek' Majekodunmi and Funke Oshonaike — both former Africa Table Tennis Champions." },
     { cat: "endorsements", src: "assets/img/endorsements/majekodunmi-champions.jpg", tag: "Honours", caption: "Dr. Adesoji Tayo, President of the Nigeria Table Tennis Federation (NTTF), with Barrister Ramoni Shitta." },
