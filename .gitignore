@@ -13,3 +13,7 @@ more tennis/
 
 # raw WhatsApp dumps (root) — not for the site
 WhatsApp Image*
+
+# raw source images (already copied into assets/)
+images*.jpeg
+images*.jpg

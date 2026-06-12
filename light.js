@@ -85,7 +85,7 @@
     { src: "assets/video/vso-clip-04.mp4", poster: "assets/img/training/schoolkids-rackets-raised.jpg", title: "School programme", caption: "School programme highlights" },
     { src: "assets/video/vso-clip-05.mp4", poster: "assets/img/portraits/coach-tournament-hall.jpg", title: "Tournament", caption: "Tournament atmosphere" },
     { src: "assets/video/vso-clip-06.mp4", poster: "assets/img/training/kids-session-hands-raised.jpg", title: "Grassroots", caption: "Grassroots energy" },
-    { src: "assets/video/vso-clip-07.mp4", poster: "assets/img/training/vso-clip-07-poster.jpg", title: "Barrister Wahab Shittu (SAN)", caption: "Barrister Wahab Shittu (SAN)." }
+    { src: "assets/video/vso-clip-07.mp4", poster: "assets/img/training/vso-clip-07-poster.jpg", title: "Coaching session", caption: "Director, Value Sports One (VSO) playing table tennis with a boy child." }
   ];
 
   /* Lightbox playlist = videos first, then images */
